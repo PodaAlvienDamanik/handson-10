@@ -12,7 +12,7 @@ export class Posts{
     title: string;
 
     @Column()
-    content: string;
+    content: string;    
 
     @Column()
     image_url: string;

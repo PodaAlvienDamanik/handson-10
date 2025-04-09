@@ -16,14 +16,14 @@ export class PostService{
     }
 
     async findByUserIdAndPostId(userId: number, postId: number) : Promise<Posts> {
-        const post = await this.postRepository.findOne({where:{user_id: userId, id: postId,},});
-        if (!post) {
+        const post = await this.postRepository.findOne({where:{user_id: userId, id: postId,}});
+        if (!post) {    
             return new Posts();
-        }
+        }   
         return post;
     }
 
     async deleteById(postId: number){
-        return this.postRepository.delete({ id : postId });
+        await this.postRepository.delete({ id : postId });
     }
 }

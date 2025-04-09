@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthModule } from './auth/auth.module';
 import { PostModule } from './post/post.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -32,11 +33,12 @@ import { PostModule } from './post/post.module';
     }),
     AuthModule,
     PostModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [ConfigService, JwtService,{
     provide: APP_GUARD,
-    useClass: AuthGuard
+    useClass: AuthGuard,
   }, AppService],
 })
 export class AppModule {}

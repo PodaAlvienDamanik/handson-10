@@ -5,11 +5,11 @@ export class LoginDTO{
     @IsString()
     @IsNotEmpty()
     @ApiProperty()
-    password: string;
+    email: string;
 
     @IsString()
     @IsNotEmpty()
     @ApiProperty()
-    email: string;
+    password: string;
 
 }

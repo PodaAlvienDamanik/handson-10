@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class CreateUsersTable1743995645758 implements MigrationInterface {
+export class CreatePostsTable1744124318183 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
@@ -14,15 +14,15 @@ export class CreateUsersTable1743995645758 implements MigrationInterface {
                 updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
 
                 CONSTRANT fk_user
-                    FOREIGN KEY(user_id)
-                    REFERENCES users(id)
-                    ON DELETE CASCADE
+                FOREIGN KEY(user_id)
+                REFERENCES users(id)
+                ON DELETE CASCADE
             )
-        `); 
+        `);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE posts;`)
+        await queryRunner.query('DROP TABLE posts;')
     }
 
 }
